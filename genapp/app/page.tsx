@@ -119,69 +119,64 @@ export default function Home() {
 
   //HTML/TAILWIND BASTA DESIGN  BAGUHIN NIYO TO PLS LANG
   return (
-    
-      <main>
-        <p style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontSize: '30px', marginTop: '10px' }}>
-        Welcome to Mint/Staking of Sky Tokens
-        </p>
-  
-        <div style={{ minHeight: '25vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-          <button onClick={() => { connectWallet(); }} className="p-3 bg-red-400 text-white rounded">
-            {walletKey !== "" ? walletKey : " Connect wallet"}
-          </button>
-  
-          <button onClick={importToken} className="p-3 bg-red-400 text-white rounded" style={{ marginTop: '10px' }}>
-            Import Token
-          </button>
-        </div>
-  
-        <div style={{marginTop: '10px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+    <main style={{ background: 'linear-gradient(135deg, #a855f7, #f472b6)', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: 'Arial, sans-serif' }}>
+      <h1 style={{ color: '#ffffff', margin: '20px 0', fontSize: '40px' }}>
+        Gen Token Minting and Staking Hub
+      </h1>
+      <p style={{ color: '#ffffff', marginBottom: '40px', fontSize: '20px' }}>
+        Mint, Stake, and Have a Nice Day!
+      </p>
 
-          <form>
-            <label> Input Amount To Mint</label><br></br>
-          </form>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px' }}>
+        {/* Minting input and button */}
+        <div>
+          {/* Input for minting amount */}
+          <label style={{ color: '#ffffff' }}>Input Amount To Mint</label>
+          <br />
           <input
             type="number"
             value={mintingAmount}
             onChange={(e) => mintAmountChange(e)}
+            style={{ marginRight: '10px' }}
           />
+          {/* Button to mint tokens */}
           <button
             onClick={() => { mintCoin(); }}
-            className="p-3 bg-red-400 text-white rounded">
-            {"Mint Token"}
+            style={{ padding: '10px', backgroundColor: '#4ade80', color: '#000000', borderRadius: '5px', cursor: 'pointer' }}>
+            Mint Token
           </button>
         </div>
-  
-        <br></br>
-  
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '10vh' }}>
-          <form>
-            <label> Input Amount To Stake</label><br></br>
-          </form>
+
+        {/* Staking input and button */}
+        <div>
+          {/* Input for staking amount */}
+          <label style={{ color: '#ffffff' }}>Input Amount To Stake</label>
+          <br />
           <input
             type="number"
             value={stakingAmount}
             onChange={(e) => stakeAmountChange(e)}
+            style={{ marginRight: '10px' }}
           />
-  
+          {/* Button to stake tokens */}
           <button
             onClick={stakeCoin}
-            className="p-3 bg-red-400 text-white rounded">
-            {"Stake It"}
+            style={{ padding: '10px', backgroundColor: '#4ade80', color: '#000000', borderRadius: '5px', cursor: 'pointer' }}>
+            Stake It
           </button>
         </div>
-  
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '20vh' }}>
-          <br></br>
-          <label>Wait for At least 1 min before Withdrawing </label>
+      </div>
 
-          <button
-            onClick={withdrawCoin}
-            className="p-3 bg-red-400 text-white rounded">
-            {"Withdraw"}
-          </button>
-        </div>
-      </main>
-
+      {/* Withdraw button */}
+      <div style={{ marginTop: '20px' }}>
+        <label style={{ color: '#ffffff' }}>Wait for At least 1 min before Withdrawing</label>
+        <br />
+        <button
+          onClick={withdrawCoin}
+          style={{ padding: '10px', backgroundColor: '#fb7185', color: '#ffffff', borderRadius: '5px', cursor: 'pointer', marginTop: '10px' }}>
+          Withdraw
+        </button>
+      </div>
+    </main>
   );
-}  
+}
