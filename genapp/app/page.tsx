@@ -119,13 +119,15 @@ export default function Home() {
 
   //HTML/TAILWIND BASTA DESIGN  BAGUHIN NIYO TO PLS LANG
   return (
-    <main style={{ background: 'linear-gradient(135deg, #a855f7, #f472b6)', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: 'Arial, sans-serif' }}>
-      <h1 style={{ color: '#ffffff', margin: '20px 0', fontSize: '40px' }}>
-        Gen Token Minting and Staking Hub
-      </h1>
-      <p style={{ color: '#ffffff', marginBottom: '40px', fontSize: '20px' }}>
-        Mint, Stake, and Have a Nice Day!
-      </p>
+    <main style={{ background: 'linear-gradient(135deg, #a855f7, #f472b6)', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around', fontFamily: '"Comic Neue", cursive' }}>
+      <header style={{ textAlign: 'center', marginTop: '20px' }}>
+        <h1 style={{ color: '#ffffff', fontSize: '48px', fontWeight: 'bold', fontFamily: '"Permanent Marker", cursive' }}>
+          Gen Token Minting and Staking Hub
+        </h1>
+        <p style={{ color: '#ffffff', fontSize: '20px', fontFamily: '"Roboto", sans-serif' }}>
+          Mint, Stake, and Have a Nice Day!
+        </p>
+      </header>
 
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px' }}>
         {/* Minting input and button */}
@@ -167,16 +169,18 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Withdraw button */}
-      <div style={{ marginTop: '20px' }}>
-        <label style={{ color: '#ffffff' }}>Wait for At least 1 min before Withdrawing</label>
+      <footer style={{ textAlign: 'center', marginBottom: '20px' }}>
+        <label style={{ color: '#ffffff', fontSize: '18px', fontFamily: '"Roboto", sans-serif' }}>
+          Wait for At least 1 min before Withdrawing
+        </label>
         <br />
         <button
           onClick={withdrawCoin}
           style={{ padding: '10px', backgroundColor: '#fb7185', color: '#ffffff', borderRadius: '5px', cursor: 'pointer', marginTop: '10px' }}>
           Withdraw
         </button>
-      </div>
-    </main>
+      </footer>
+      </main>
+
   );
 }
