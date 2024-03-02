@@ -111,10 +111,10 @@ export default function Home() {
   return (
     <main style={{ background: 'linear-gradient(135deg, #a855f7, #f472b6)', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around', fontFamily: '"Comic Neue", cursive' }}>
       <header style={{ textAlign: 'center', marginTop: '20px' }}>
-        <h1 style={{ color: '#006fb9', fontSize: '48px', fontWeight: 'bold', fontFamily: '"Permanent Marker", cursive' }}>
+        <h1 style={{ color: '#ffffff', fontSize: '48px', fontWeight: 'bold', fontFamily: '"Permanent Marker", cursive' }}>
           Gen Token Minting and Staking Hub
         </h1>
-        <p style={{ color: '#ffffff', fontSize: '20px', fontFamily: '"Permanent Marker", sans-serif' }}>
+        <p style={{ color: '#006fb9', fontSize: '20px', fontFamily: '"Permanent Marker", sans-serif' }}>
           Mint, Stake, and Have a Nice Day!
         </p>
       </header>
