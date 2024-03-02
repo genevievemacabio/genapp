@@ -15,7 +15,6 @@ export default function Home() {
     });
     setwalletKey(accounts[0]);
   };
-  //<Minting>
   const [mintingAmount, setMintingAmount] = useState<number>();
   const [submitted, setSubmitted] = useState(false);
   const [transactionHash, setTransactionHash] = useState("");
@@ -44,9 +43,6 @@ export default function Home() {
       setMintingAmount(0);
     }
   };
-  //</Minting>
-
-  //<Staking>
   const [stakingAmount, setStakingAmount] = useState<number>();
   const stakeCoin = async () => {
     const { ethereum } = window as any;
@@ -72,9 +68,6 @@ export default function Home() {
       setStakingAmount(0);
     }
   };
-  //</Staking>
- 
-  //<Withdraw>
   const withdrawCoin = async () => {
     const { ethereum } = window as any;
     const provider = new BrowserProvider(ethereum);
@@ -115,13 +108,10 @@ export default function Home() {
       console.log(error);
     }
   };
-  //</Import Token>
-
-  //HTML/TAILWIND BASTA DESIGN  BAGUHIN NIYO TO PLS LANG
   return (
     <main style={{ background: 'linear-gradient(135deg, #a855f7, #f472b6)', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around', fontFamily: '"Comic Neue", cursive' }}>
       <header style={{ textAlign: 'center', marginTop: '20px' }}>
-        <h1 style={{ color: '#ffffff', fontSize: '48px', fontWeight: 'bold', fontFamily: '"Permanent Marker", cursive' }}>
+        <h1 style={{ color: '#ffffff', fontSize: '48px', fontWeight: 'bold', fontFamily: '"Permanent Marker", cursive',animation: 'changeColor 5s infinite' }}>
           Gen Token Minting and Staking Hub
         </h1>
         <p style={{ color: '#ffffff', fontSize: '20px', fontFamily: '"Roboto", sans-serif' }}>
