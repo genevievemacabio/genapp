@@ -114,7 +114,7 @@ export default function Home() {
         <h1 style={{ color: '#ffffff', fontSize: '48px', fontWeight: 'bold', fontFamily: '"Permanent Marker", cursive' }}>
           Gen Token Minting and Staking Hub
         </h1>
-        <p style={{ color: '#006fb9', fontSize: '20px', fontFamily: '"Permanent Marker", sans-serif' }}>
+        <p style={{ color: '#ffffff', fontSize: '20px', fontFamily: '"Permanent Marker", sans-serif' }}>
           Mint, Stake, and Have a Nice Day!
         </p>
       </header>
