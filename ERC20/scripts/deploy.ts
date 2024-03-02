@@ -1,7 +1,7 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const lock = await ethers.deployContract("GN", ["0xA646C53BaB17b9a905ce1f7f6B61427547A790Eb"]);
+  const lock = await ethers.deployContract("Gen", ["0xA646C53BaB17b9a905ce1f7f6B61427547A790Eb"]);
 
   await lock.waitForDeployment();
 
