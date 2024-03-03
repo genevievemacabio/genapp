@@ -123,7 +123,7 @@ export default function Home() {
         {/* Minting input and button */}
         <div>
           {/* Input for minting amount */}
-          <label style={{ color: '#ffffff' }}>Input Amount To Mint</label>
+          <label style={{ color: '#ffffff' }}>Indicate Minting Amount</label>
           <br />
           <input
             type="number"
@@ -142,7 +142,7 @@ export default function Home() {
         {/* Staking input and button */}
         <div>
           {/* Input for staking amount */}
-          <label style={{ color: '#ffffff' }}>Input Amount To Stake</label>
+          <label style={{ color: '#ffffff' }}>Indicate Staking Amount</label>
           <br />
           <input
             type="number"
@@ -161,7 +161,7 @@ export default function Home() {
 
       <footer style={{ textAlign: 'center', marginBottom: '20px' }}>
         <label style={{ color: '#ffffff', fontSize: '18px', fontFamily: '"Permanent Marker", sans-serif' }}>
-          Wait for At least 1 min before Withdrawing
+        Allow at least 1 minute before Withdrawing
         </label>
         <br />
         <button

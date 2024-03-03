@@ -17,12 +17,12 @@ contract Gen is ERC20, Ownable {
     {}
 
     function mint(address to, uint256 amount) public {
-        uint256 adjustedAmount = amount * 1e18;
+        uint256 adjustedAmount = amount * 1e14;
         _mint(to, adjustedAmount);
     }
 
     function stake(uint256 amount) public {
-        uint256 adjustedAmount = amount * 1e18;
+        uint256 adjustedAmount = amount * 1e14;
 
         require(adjustedAmount > 0, "Cannot stake 0 tokens");
         require(balanceOf(msg.sender) >= adjustedAmount, "Insufficient balance");
@@ -34,11 +34,11 @@ contract Gen is ERC20, Ownable {
 
 
     function withdraw() public {
-        require(block.timestamp > (_lastStakeTimestamp[msg.sender] + lockInPeriod), "You cannot withdraw funds, you are still in the lock in period");
+        require(block.timestamp > (_lastStakeTimestamp[msg.sender] + lockInPeriod), "Withdrawal not permitted during lock-in period");
         require(_stakes[msg.sender] > 0, "No staked tokens");
 
         uint256 stakedAmount = _stakes[msg.sender];
-        uint256 reward = ((block.timestamp - _lastStakeTimestamp[msg.sender]) * _rewardRate) * 1e18;
+        uint256 reward = ((block.timestamp - _lastStakeTimestamp[msg.sender]) * _rewardRate) * 1e14;
 
         _stakes[msg.sender] = 0;
         _transfer(address(this), msg.sender, stakedAmount);
