@@ -15,6 +15,7 @@ export default function Home() {
     });
     setwalletKey(accounts[0]);
   };
+  //<Minting>
   const [mintingAmount, setMintingAmount] = useState<number>();
   const [submitted, setSubmitted] = useState(false);
   const [transactionHash, setTransactionHash] = useState("");
@@ -43,6 +44,9 @@ export default function Home() {
       setMintingAmount(0);
     }
   };
+  //</Minting>
+
+  //<Staking>
   const [stakingAmount, setStakingAmount] = useState<number>();
   const stakeCoin = async () => {
     const { ethereum } = window as any;
@@ -56,7 +60,7 @@ export default function Home() {
       setTransactionHash(tx.hash);
     } catch (e: any) {
       const decodedError = contract.interface.parseError(e.data);
-      alert(`Staking failed: ${decodedError?.args}`);
+      alert(`Minting failed: ${decodedError?.args}`);
     }
   };
   const stakeAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -68,7 +72,9 @@ export default function Home() {
       setStakingAmount(0);
     }
   };
-
+  //</Staking>
+ 
+  //<Withdraw>
   const withdrawCoin = async () => {
     const { ethereum } = window as any;
     const provider = new BrowserProvider(ethereum);
@@ -81,10 +87,11 @@ export default function Home() {
       setTransactionHash(tx.hash);
     } catch (e: any) {
       const decodedError = contract.interface.parseError(e.data);
-      alert(`Withdrawal failed: ${decodedError?.args}`);
+      alert(`Minting failed: ${decodedError?.args}`);
     }
   };
-
+  //</Withdraw>
+  //<Import Token>
   const importToken = async() => {
     const {ethereum} = window as any;
     const tokenAddress = "0xA646C53BaB17b9a905ce1f7f6B61427547A790Eb"; //contract add
@@ -108,6 +115,8 @@ export default function Home() {
       console.log(error);
     }
   };
+
+
   return (
     <div className="animated-background flex flex-col h-screen">
       <h1 className="text-white text-4xl font-bold text-center animate-slide-in">
