@@ -116,61 +116,57 @@ export default function Home() {
     }
   };
   return (
-    <div className="flex flex-col h-screen">
-      <header className="text-white bg-gradient-to-r from-black to-pink-500 p-6">
-        <h1 className="text-4xl text-center font-bold">Gen Token Minting and Staking Hub</h1>
-        <p className="text-xl text-center mt-4">Mint, Stake, and Have a Nice Day!</p>
-      </header>
-      
-      <main className="flex-1 overflow-y-auto flex justify-center items-start pt-10">
-        <div className="flex items-start">
-          {/* Adjust the style for the buttons here to match your new design */}
-          <div className="flex flex-col items-center mr-10 space-y-4">
-            <button onClick={connectWallet} style={{ backgroundColor: '#00f', color: 'white', padding: '20px', borderRadius: '10px' }}>
-              {walletKey !== "" ? walletKey : "Connect Wallet"}
-            </button>
-            <button onClick={importToken} style={{ backgroundColor: '#00f', color: 'white', padding: '20px', borderRadius: '10px' }}>
-              Import Token
+    <div className="flex flex-col h-screen justify-between">
+      <div className="bg-gradient-to-r from-black to-pink-500 p-6 text-white text-center">
+        <h1 className="text-4xl font-bold">Gen Token Minting and Staking Hub</h1>
+        <p className="text-xl mt-4">Mint, Stake, and Have a Nice Day!</p>
+      </div>
+
+      <div className="flex justify-between items-center p-10">
+        <div className="flex flex-col items-center space-y-4">
+          <button onClick={connectWallet} className="bg-blue-500 text-white px-4 py-2 rounded-full shadow-lg">
+            Connect Wallet
+          </button>
+          <button onClick={importToken} className="bg-blue-500 text-white px-4 py-2 rounded-full shadow-lg">
+            Import Token
+          </button>
+        </div>
+
+        <div className="flex flex-col items-center space-y-4">
+          <div className="mb-4">
+            <label className="block text-white mb-2">Indicate Minting Amount</label>
+            <input
+              type="number"
+              value={mintingAmount}
+              onChange={mintAmountChange}
+              className="mb-4 px-3 py-2 rounded shadow-lg"
+            />
+            <button onClick={mintCoin} className="bg-blue-500 text-white px-4 py-2 rounded-full shadow-lg">
+              Mint Token
             </button>
           </div>
 
-          {/* Content on the right, now moved slightly to the left */}
-          <div className="flex flex-col space-y-4" style={{ maxWidth: '50%' }}>
-            <div>
-              <label className="block mb-2 text-white">Indicate Minting Amount</label>
-              <input
-                type="number"
-                value={mintingAmount}
-                onChange={mintAmountChange}
-                className="mb-4 px-3 py-2 rounded text-black"
-              />
-              <button onClick={mintCoin} className="bg-pink-500 text-white px-4 py-2 rounded">
-                Mint Token
-              </button>
-            </div>
+          <div className="mb-4">
+            <label className="block text-white mb-2">Indicate Staking Amount</label>
+            <input
+              type="number"
+              value={stakingAmount}
+              onChange={stakeAmountChange}
+              className="mb-4 px-3 py-2 rounded shadow-lg"
+            />
+            <button onClick={stakeCoin} className="bg-blue-500 text-white px-4 py-2 rounded-full shadow-lg">
+              Stake It
+            </button>
+          </div>
 
-            <div>
-              <label className="block mb-2 text-white">Indicate Staking Amount</label>
-              <input
-                type="number"
-                value={stakingAmount}
-                onChange={stakeAmountChange}
-                className="mb-4 px-3 py-2 rounded text-black"
-              />
-              <button onClick={stakeCoin} className="bg-pink-500 text-white px-4 py-2 rounded">
-                Stake It
-              </button>
-            </div>
-
-            <div className="mt-6">
-              <p className="text-white mb-4">Allow at least 1 minute before Withdrawing</p>
-              <button onClick={withdrawCoin} className="bg-pink-500 text-white px-4 py-2 rounded">
-                Withdraw
-              </button>
-            </div>
+          <div>
+            <p className="text-white mb-2">Allow at least 1 minute before Withdrawing</p>
+            <button onClick={withdrawCoin} className="bg-blue-500 text-white px-4 py-2 rounded-full shadow-lg">
+              Withdraw
+            </button>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

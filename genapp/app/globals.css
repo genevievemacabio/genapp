@@ -3,36 +3,57 @@
 @tailwind utilities;
 
 :root {
-  /* Define the gradient colors */
   --gradient-start: 0, 0, 0; /* Black */
   --gradient-end: 255, 192, 203; /* Pink */
 }
 
-body {
-  /* Apply the gradient to the body background */
-  background: linear-gradient(
+@layer base {
+  body {
+    @apply min-h-screen font-sans;
+    background: linear-gradient(
       to bottom,
       rgb(var(--gradient-start)),
       rgb(var(--gradient-end))
-  );
-  min-height: 100vh; /* Ensure that the body is at least the height of the viewport */
-  color: rgb(var(--foreground-rgb)); /* Set text color */
-  font-family: 'Inter', sans-serif; /* Set a default font, make sure to import it if needed */
-}
-
-/* Custom utility class for a vertical button */
-@layer utilities {
-  .button-vertical {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%; /* Full height */
-    width: 50px; /* Adjust the width as needed */
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
+    );
+    color: #fff; /* Set text color */
   }
 }
 
-/* Additional styles for responsive layouts, animations, or other state-based styles can be added here */
+@layer components {
+  .connect-button,
+  .import-button,
+  .mint-button,
+  .stake-button,
+  .withdraw-button {
+    @apply text-white py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out transform;
+  }
+
+  .connect-button:hover,
+  .import-button:hover,
+  .mint-button:hover,
+  .stake-button:hover,
+  .withdraw-button:hover {
+    @apply bg-blue-600;
+  }
+
+  .connect-button,
+  .import-button {
+    @apply bg-blue-500 mb-4;
+  }
+
+  .mint-button,
+  .stake-button,
+  .withdraw-button {
+    @apply bg-purple-500;
+  }
+
+  .input-field {
+    @apply mb-4 px-3 py-2 rounded shadow appearance-none text-black;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}
