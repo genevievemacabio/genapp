@@ -118,7 +118,7 @@ export default function Home() {
   return (
     <div className="flex flex-col h-screen">
       <div className="flex-grow-0 pt-6 pb-8 px-8 bg-gradient-to-r from-black to-pink-500">
-        <h1 className="text-white text-4xl font-bold text-center">Gen Token Minting and Staking Hub</h1>
+      <h1 className="text-white text-4xl font-bold text-center animate-slide-in">Gen Token Minting and Staking Hub</h1>
         <p className="text-white text-lg text-center mt-2">Mint, Stake, and Have a Nice Day!</p>
       </div>
       
