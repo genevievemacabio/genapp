@@ -3,57 +3,36 @@
 @tailwind utilities;
 
 :root {
+  /* Define the gradient colors */
   --gradient-start: 0, 0, 0; /* Black */
   --gradient-end: 255, 192, 203; /* Pink */
-  --button-width: 200px; /* Width of the vertical buttons */
-  --button-height: 60px; /* Height of the vertical buttons */
 }
 
 body {
+  /* Apply the gradient to the body background */
   background: linear-gradient(
-    to bottom,
-    rgb(var(--gradient-start)),
-    rgb(var(--gradient-end))
+      to bottom,
+      rgb(var(--gradient-start)),
+      rgb(var(--gradient-end))
   );
-  min-height: 100vh;
-  color: #fff; /* Assuming you want white text */
+  min-height: 100vh; /* Ensure that the body is at least the height of the viewport */
+  color: rgb(var(--foreground-rgb)); /* Set text color */
   font-family: 'Inter', sans-serif; /* Set a default font, make sure to import it if needed */
 }
 
+/* Custom utility class for a vertical button */
 @layer utilities {
   .button-vertical {
-    display: block; /* Changed from flex to block for full width */
-    width: var(--button-width); /* Use the CSS variable for width */
-    height: var(--button-height); /* Use the CSS variable for height */
-    margin: 0 auto; /* Center the button */
-    margin-bottom: 1rem; /* Space between buttons */
-    padding: 0.5rem 1rem; /* Padding inside the button */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Full height */
+    width: 50px; /* Adjust the width as needed */
+    padding: 10px;
     text-align: center;
     cursor: pointer;
-    background-color: #2563eb; /* Button color */
-    color: white; /* Button text color */
-    border-radius: 0.375rem; /* Tailwind .rounded-md equivalent */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tailwind shadow-md equivalent */
-    transition: background-color 0.3s ease; /* Smooth background color transition on hover */
-  }
-
-  .button-vertical:hover {
-    background-color: #1d4ed8; /* Darker blue on hover */
-  }
-
-  /* Custom scroll behavior for smoother scrolling */
-  .scroll-smooth {
-    scroll-behavior: smooth;
-  }
-
-  /* Overflow utilities for vertical and horizontal scrolling */
-  .overflow-y-auto {
-    overflow-y: auto;
-  }
-
-  .overflow-x-auto {
-    overflow-x: auto;
   }
 }
 
-/* Add any additional global styles or utilities as needed */
+/* Additional styles for responsive layouts, animations, or other state-based styles can be added here */
