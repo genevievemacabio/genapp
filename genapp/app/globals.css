@@ -78,7 +78,11 @@
     background-size: 400% 400%;
   }
 
-  .slideIn {
+  .animate-slide-in {
+    animation: slideIn 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes slideIn {
     0%, 100% {
       transform: translateX(-10%);
       opacity: 0;
