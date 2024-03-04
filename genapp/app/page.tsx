@@ -56,7 +56,7 @@ export default function Home() {
       setTransactionHash(tx.hash);
     } catch (e: any) {
       const decodedError = contract.interface.parseError(e.data);
-      alert(`Minting failed: ${decodedError?.args}`);
+      alert(`Staking failed: ${decodedError?.args}`);
     }
   };
   const stakeAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -81,7 +81,7 @@ export default function Home() {
       setTransactionHash(tx.hash);
     } catch (e: any) {
       const decodedError = contract.interface.parseError(e.data);
-      alert(`Minting failed: ${decodedError?.args}`);
+      alert(`Withdrawal failed: ${decodedError?.args}`);
     }
   };
 
@@ -118,7 +118,7 @@ export default function Home() {
       <div className="flex-grow flex flex-col items-center justify-center px-8 bg-gradient-to-b from-pink-300 to-pink-500">
         <div className="flex flex-wrap justify-center gap-8 mb-8">
           <button onClick={connectWallet} className="bg-blue-300 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">
-            Connect Wallet
+            {walletKey !== "" ? "Wallet Connected" : "Connect Wallet"}
           </button>
           <button onClick={importToken} className="bg-blue-300 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">
             Import Token
@@ -129,7 +129,7 @@ export default function Home() {
             <label className="block text-white text-sm font-bold mb-2" htmlFor="minting-amount">
               Indicate Minting Amount
             </label>
-            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="minting-amount" type="number" placeholder="0"/>
+            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="minting-amount" type="number" placeholder="0" onChange={(e) => mintAmountChange(e)}/>
           </div>
           <button onClick={mintCoin} className="bg-purple-300 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded w-full">
             Mint Token
@@ -140,7 +140,7 @@ export default function Home() {
             <label className="block text-white text-sm font-bold mb-2" htmlFor="staking-amount">
               Indicate Staking Amount
             </label>
-            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="staking-amount" type="number" placeholder="0"/>
+            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="staking-amount" type="number" placeholder="0" onChange={(e) => stakeAmountChange(e)}/>
           </div>
           <button onClick={stakeCoin} className="bg-purple-300 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded w-full">
             Stake It
@@ -155,4 +155,4 @@ export default function Home() {
       </div>
     </div>
   );
-  }
+}
