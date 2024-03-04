@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --gradient-start: 0, 0, 0; /* Black */
-  --gradient-end: 255, 192, 203; /* Pink */
+  --gradient-start: 0, 0, 0; 
+  --gradient-end: 255, 192, 203; 
 }
 
 @layer base {
@@ -15,7 +15,7 @@
       rgb(var(--gradient-start)),
       rgb(var(--gradient-end))
     );
-    color: #000000; /* Set text color */
+    color: #000000;
   }
 }
 
@@ -29,7 +29,6 @@
     @apply text-white py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out;
   }
 
-  /* Hover states for buttons */
   .connect-button:hover,
   .import-button:hover,
   .mint-button:hover,
@@ -38,7 +37,6 @@
     @apply bg-blue-600;
   }
 
-  /* Initial button colors */
   .connect-button,
   .import-button {
     @apply bg-blue-500 mb-4;

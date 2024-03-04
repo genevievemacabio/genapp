@@ -15,7 +15,6 @@ export default function Home() {
     });
     setwalletKey(accounts[0]);
   };
-  //<Minting>
   const [mintingAmount, setMintingAmount] = useState<number>();
   const [submitted, setSubmitted] = useState(false);
   const [transactionHash, setTransactionHash] = useState("");
@@ -44,9 +43,6 @@ export default function Home() {
       setMintingAmount(0);
     }
   };
-  //</Minting>
-
-  //<Staking>
   const [stakingAmount, setStakingAmount] = useState<number>();
   const stakeCoin = async () => {
     const { ethereum } = window as any;
@@ -72,9 +68,7 @@ export default function Home() {
       setStakingAmount(0);
     }
   };
-  //</Staking>
- 
-  //<Withdraw>
+
   const withdrawCoin = async () => {
     const { ethereum } = window as any;
     const provider = new BrowserProvider(ethereum);
@@ -90,8 +84,7 @@ export default function Home() {
       alert(`Minting failed: ${decodedError?.args}`);
     }
   };
-  //</Withdraw>
-  //<Import Token>
+
   const importToken = async() => {
     const {ethereum} = window as any;
     const tokenAddress = "0xA646C53BaB17b9a905ce1f7f6B61427547A790Eb"; //contract add
