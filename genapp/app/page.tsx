@@ -110,45 +110,84 @@ export default function Home() {
   };
   return (
     <div className="animated-background flex flex-col h-screen">
-      <h1 className="text-white text-4xl font-bold text-center animate-slide-in">Gen Token Minting and Staking Hub</h1>
+      <h1 className="text-white text-4xl font-bold text-center animate-slide-in">
+        Gen Token Minting and Staking Hub
+      </h1>
       <div className="flex-grow-0 pt-6 pb-8 px-8 bg-gradient-to-r from-black to-pink-500">
-        <p className="text-white text-lg text-center mt-2">Mint, Stake, and Have a Nice Day!</p>
+        <p className="text-white text-lg text-center mt-2">
+          Mint, Stake, and Have a Nice Day!
+        </p>
       </div>
-      
+
       <div className="flex-grow flex flex-col items-center justify-center px-8 bg-gradient-to-b from-pink-300 to-pink-500">
         <div className="flex flex-wrap justify-center gap-8 mb-8">
-          <button onClick={connectWallet} className="bg-blue-300 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">
+          <button
+            onClick={connectWallet}
+            className="bg-blue-300 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded"
+          >
             {walletKey !== "" ? "Wallet Connected" : "Connect Wallet"}
           </button>
-          <button onClick={importToken} className="bg-blue-300 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">
+          <button
+            onClick={importToken}
+            className="bg-blue-300 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded"
+          >
             Import Token
           </button>
         </div>
         <div className="w-full max-w-xs mb-8">
           <div className="mb-4">
-            <label className="block text-white text-sm font-bold mb-2" htmlFor="minting-amount">
+            <label
+              className="block text-white text-sm font-bold mb-2"
+              htmlFor="minting-amount"
+            >
               Indicate Minting Amount
             </label>
-            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="minting-amount" type="number" placeholder="0" onChange={(e) => mintAmountChange(e)}/>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="minting-amount"
+              type="number"
+              placeholder="0"
+              onChange={(e) => mintAmountChange(e)}
+            />
           </div>
-          <button onClick={mintCoin} className="bg-purple-300 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded w-full">
+          <button
+            onClick={mintCoin}
+            className="bg-purple-300 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded w-full"
+          >
             Mint Token
           </button>
         </div>
         <div className="w-full max-w-xs mb-8">
           <div className="mb-4">
-            <label className="block text-white text-sm font-bold mb-2" htmlFor="staking-amount">
+            <label
+              className="block text-white text-sm font-bold mb-2"
+              htmlFor="staking-amount"
+            >
               Indicate Staking Amount
             </label>
-            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="staking-amount" type="number" placeholder="0" onChange={(e) => stakeAmountChange(e)}/>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="staking-amount"
+              type="number"
+              placeholder="0"
+              onChange={(e) => stakeAmountChange(e)}
+            />
           </div>
-          <button onClick={stakeCoin} className="bg-purple-300 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded w-full">
+          <button
+            onClick={stakeCoin}
+            className="bg-purple-300 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded w-full"
+          >
             Stake It
           </button>
         </div>
         <div className="w-full max-w-xs">
-          <p className="text-white text-sm mb-2">Allow at least 1 minute before Withdrawing</p>
-          <button onClick={withdrawCoin} className="bg-green-300 hover:bg-green-400 text-white font-bold py-2 px-4 rounded w-full">
+          <p className="text-white text-sm mb-2">
+            Allow at least 1 minute before Withdrawing
+          </p>
+          <button
+            onClick={withdrawCoin}
+            className="bg-green-300 hover:bg-green-400 text-white font-bold py-2 px-4 rounded w-full"
+          >
             Withdraw
           </button>
         </div>
