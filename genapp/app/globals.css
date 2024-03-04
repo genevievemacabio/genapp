@@ -3,31 +3,34 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --gradient-start: 0, 0, 0; /* Black */
+  --gradient-end: 255, 192, 203; /* Pink */
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--gradient-start)),
+      rgb(var(--gradient-end))
+  );
+  min-height: 100vh; 
+  color: rgb(var(--foreground-rgb)); /* Set text color */
+  font-family: 'Inter', sans-serif; /* Set a default font, make sure to import it if needed */
 }
 
+/* Custom utility class for a vertical button */
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .button-vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Full height */
+    width: 50px; /* Adjust the width as needed */
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
   }
 }
+
+/* Additional styles for responsive layouts, animations, or other state-based styles can be added here */

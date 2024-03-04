@@ -15,6 +15,7 @@ export default function Home() {
     });
     setwalletKey(accounts[0]);
   };
+  //<Minting>
   const [mintingAmount, setMintingAmount] = useState<number>();
   const [submitted, setSubmitted] = useState(false);
   const [transactionHash, setTransactionHash] = useState("");
@@ -43,6 +44,9 @@ export default function Home() {
       setMintingAmount(0);
     }
   };
+  //</Minting>
+
+  //<Staking>
   const [stakingAmount, setStakingAmount] = useState<number>();
   const stakeCoin = async () => {
     const { ethereum } = window as any;
@@ -68,6 +72,9 @@ export default function Home() {
       setStakingAmount(0);
     }
   };
+  //</Staking>
+ 
+  //<Withdraw>
   const withdrawCoin = async () => {
     const { ethereum } = window as any;
     const provider = new BrowserProvider(ethereum);
@@ -87,8 +94,8 @@ export default function Home() {
   //<Import Token>
   const importToken = async() => {
     const {ethereum} = window as any;
-    const tokenAddress = "0x7d3D5d34e95AD272214d1047DC0fd2e0fFC02D09"; //contract add
-    const tokenSymbol = "GN";
+    const tokenAddress = "0xA646C53BaB17b9a905ce1f7f6B61427547A790Eb"; //contract add
+    const tokenSymbol = "Gen";
     const tokenDecimal = 18;
 
     try{
@@ -108,69 +115,61 @@ export default function Home() {
       console.log(error);
     }
   };
+
   return (
-    <main style={{ background: 'linear-gradient(135deg, #a855f7, #f472b6)', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around', fontFamily: '"Comic Neue", cursive' }}>
-      <header style={{ textAlign: 'center', marginTop: '20px' }}>
-        <h1 style={{ color: '#ffffff', fontSize: '48px', fontWeight: 'bold', fontFamily: '"Permanent Marker", cursive' }}>
-          Gen Token Minting and Staking Hub
-        </h1>
-        <p style={{ color: '#ffffff', fontSize: '20px', fontFamily: '"Permanent Marker", sans-serif' }}>
-          Mint, Stake, and Have a Nice Day!
-        </p>
+    <div className="flex flex-col h-screen">
+      <header className="text-white bg-gradient-to-r from-black to-pink-500 p-6">
+        <h1 className="text-4xl text-center font-bold">Gen Token Minting and Staking Hub</h1>
+        <p className="text-xl text-center mt-4">Mint, Stake, and Have a Nice Day!</p>
       </header>
+      
+      <main className="flex-1 overflow-y-auto">
+        <section className="flex items-center justify-between p-10">
+          <div className="flex flex-col items-center space-y-4">
+            <button onClick={connectWallet} className="bg-pink-500 text-white px-4 py-2 rounded">
+              {walletKey !== "" ? walletKey : "Connect Wallet"}
+            </button>
+            <button onClick={importToken} className="bg-pink-500 text-white px-4 py-2 rounded">
+              Import Token
+            </button>
+          </div>
 
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px' }}>
-        {/* Minting input and button */}
-        <div>
-          {/* Input for minting amount */}
-          <label style={{ color: '#ffffff' }}>Indicate Minting Amount</label>
-          <br />
-          <input
-            type="number"
-            value={mintingAmount}
-            onChange={(e) => mintAmountChange(e)}
-            style={{ marginRight: '10px' }}
-          />
-          {/* Button to mint tokens */}
-          <button
-            onClick={() => { mintCoin(); }}
-            style={{ padding: '10px', backgroundColor: '#4ade80', color: '#000000', borderRadius: '5px', cursor: 'pointer' }}>
-            Mint Token
-          </button>
-        </div>
+          <div className="flex flex-col items-center space-y-4">
+            <div>
+              <label className="block mb-2 text-white">Indicate Minting Amount</label>
+              <input
+                type="number"
+                value={mintingAmount}
+                onChange={mintAmountChange}
+                className="mb-4 px-3 py-2 rounded"
+              />
+              <button onClick={mintCoin} className="bg-pink-500 text-white px-4 py-2 rounded">
+                Mint Token
+              </button>
+            </div>
 
-        {/* Staking input and button */}
-        <div>
-          {/* Input for staking amount */}
-          <label style={{ color: '#ffffff' }}>Indicate Staking Amount</label>
-          <br />
-          <input
-            type="number"
-            value={stakingAmount}
-            onChange={(e) => stakeAmountChange(e)}
-            style={{ marginRight: '10px' }}
-          />
-          {/* Button to stake tokens */}
-          <button
-            onClick={stakeCoin}
-            style={{ padding: '10px', backgroundColor: '#4ade80', color: '#000000', borderRadius: '5px', cursor: 'pointer' }}>
-            Stake It
-          </button>
-        </div>
-      </div>
+            <div>
+              <label className="block mb-2 text-white">Indicate Staking Amount</label>
+              <input
+                type="number"
+                value={stakingAmount}
+                onChange={stakeAmountChange}
+                className="mb-4 px-3 py-2 rounded"
+              />
+              <button onClick={stakeCoin} className="bg-pink-500 text-white px-4 py-2 rounded">
+                Stake It
+              </button>
+            </div>
 
-      <footer style={{ textAlign: 'center', marginBottom: '20px' }}>
-        <label style={{ color: '#ffffff', fontSize: '18px', fontFamily: '"Permanent Marker", sans-serif' }}>
-        Allow at least 1 minute before Withdrawing
-        </label>
-        <br />
-        <button
-          onClick={withdrawCoin}
-          style={{ padding: '10px', backgroundColor: '#fb7185', color: '#ffffff', borderRadius: '5px', cursor: 'pointer', marginTop: '10px' }}>
-          Withdraw
-        </button>
-      </footer>
+            <div className="mt-6">
+              <p className="text-white mb-4">Allow at least 1 minute before Withdrawing</p>
+              <button onClick={withdrawCoin} className="bg-pink-500 text-white px-4 py-2 rounded">
+                Withdraw
+              </button>
+            </div>
+          </div>
+        </section>
       </main>
-
+    </div>
   );
 }
